@@ -1,5 +1,8 @@
 from django.db import models
+from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator
+
+
 # Create your models here.
 
 STATUS = (
@@ -20,12 +23,13 @@ GENERO_CINEMATOGRAFICO = (
 class Conteudo(models.Model):
     titulo = models.CharField(max_length=100, unique=True)
     slug = models.SlugField(max_length=100, unique=True)
-    imagem = models.ImageField(upload_to='conteudo/static/imagems/')
+    imagem = models.ImageField(upload_to='imagems/')
     sinopse = models.TextField()
     elenco = models.CharField(max_length=100)
     criado_em = models.DateTimeField(auto_now_add=True)
     idade_recomendada = models.IntegerField(validators=[MinValueValidator(10),
                                                         MaxValueValidator(18)])
+    likes = models.ManyToManyField(User, related_name="like_post")
     status = models.CharField(max_length=12, choices=STATUS, default='Normal')
     genero = models.CharField(max_length=5, choices=GENERO)
     genero_cinematografico = models.CharField(max_length=12, choices=GENERO_CINEMATOGRAFICO)
