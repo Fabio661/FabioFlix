@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from .models import Conteudo
-from django.shortcuts import get_list_or_404
 
 # Create your views here.
 
@@ -8,7 +7,12 @@ def pagina_inicial(request):
     conteudo = Conteudo.objects.all()
     
     conteudos = {
-        'conteudo': conteudo
+        'conteudo': conteudo      
     }
     
     return render(request, 'home.html', conteudos)
+
+def darlike(request, pk):
+    conteudo = Conteudo(id=pk)
+    conteudo.likes.add(request.user.id)
+    return redirect('home'+str(conteudo))
