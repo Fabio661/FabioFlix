@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     'conteudo',
+    'usuario',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +130,9 @@ MEDIA_ROOT = 'static/imagems/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Configurações de Autenticação
+
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'login'
+LOGIN_URL = 'login'
