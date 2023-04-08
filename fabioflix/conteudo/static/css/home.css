@@ -19,6 +19,12 @@ body {
     width: 750px;
     border-radius: 10px; 
     box-shadow: -5px 5px 5px #ffffff11;
+    transition: 0.2s, 0.2s;
+}
+
+.container img:hover {
+    height: 470px;
+    width: 770px;
 }
 
 .container h2 {
@@ -54,12 +60,13 @@ body {
 .flex-container {
     display: inline-flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: flex-start;
     margin-left: 75px;
+    margin-right: -55px;
 }
 
-.flex-container .filmes {
+.flex-container .cards {
     margin-top: 10px;
     background-color: rgb(0, 0, 0);
     border-radius: 10px;
@@ -67,13 +74,19 @@ body {
 
 .flex-container .cimaCard {
     text-align: center;
-    padding: 5px;
-    color: rgb(255, 255, 255);
+    margin-bottom: -17px;
+    
 }
 
 .flex-container img {
     height: 150px;
-    width: 250px;  
+    width: 250px; 
+    transition: 0.2s, 0.2s; 
+}
+
+.flex-container img:hover {
+    height: 165px;
+    width: 265px;
 }
 
 .flex-container .bnt-lista-filme {
@@ -81,4 +94,59 @@ body {
    align-items: center;
    text-align: center;
    justify-content: space-around;
+}
+
+/* Filmes */
+.filmes h2 {
+    margin-left: 75px;
+    margin-top: 10px;
+}
+
+.container_2 {
+    display: inline-flex;
+    margin-right: -55px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-left: 75px;
+    
+}
+
+.container_2 img {
+    height: 150px;
+    width: 250px;
+    margin-top: 10px;
+    border-radius: 10px;
+    transition: 0.2s, 0.2s;
+}
+
+.container_2 img:hover {
+    height: 165px;
+    width: 265px;
+}
+
+/* Serie */
+.series h2 {
+    margin-left: 75px;
+    margin-top: 10px;
+}
+
+.container_3 {
+    display: inline-flex;
+    margin-right: -55px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-left: 75px;
+}
+
+.container_3 img {
+    height: 150px;
+    width: 250px;
+    margin-top: 10px;
+    border-radius: 10px;
+    transition: 0.2s, 0.2s;
+}
+
+.container_3 img:hover {
+    height: 165px;
+    width: 265px;
 }
