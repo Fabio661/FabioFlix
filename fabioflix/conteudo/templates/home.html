@@ -41,40 +41,45 @@
 
     <!--Destaques-->
     <div class="destaques">
-        {% for cont in conteudo %}
-          {% if cont.id == 1 or cont.id == 2 %}
-            <div class="container">
-              <h2>FKFLIX</h2><h1>{{cont.titulo}}</h1>
-              <img src="{{cont.imagem}}" alt="Imagem {{cont.titulo}}">
-              <div class="botao-destaque">
-                <button class="btn btn-light" type="button">Assistir</button>
-                <button class="btn btn-dark" type="button">Mais Informações</button>
-              </div>
+      {% for cont in conteudo %}
+        {% if cont.id == 1 or cont.id == 2 %}
+          <div class="container">
+            <h2>FKFLIX</h2><h1>{{cont.titulo}}</h1>
+            <img src="{{cont.imagem}}" alt="Imagem {{cont.titulo}}">
+            <div class="botao-destaque">
+              <button class="btn btn-light" type="button">Assistir</button>
+              <button class="btn btn-dark" type="button">Mais Informações</button>
             </div>
-          {% endif %}      
-        {% endfor %}
-      </div>
-      <div class="lista-filmes-series">
-        <h2>Nossas sugestões de hoje pra você</h2>
-        {% for cont in conteudo %}
-          <div class="flex-container">
-            <div class="filmes">
-              <div class="cimaCard">
-                <p class="titulo">{{cont.titulo}}</p>
-              </div>
-              <div class="midiaCard">
-                <img src="{{cont.imagem}}" alt="Imagem {{cont.titulo}}">
-              </div>
-              <div class="baixoCard">
-                <div class="botao-lista-filme">
-                  <button class="btn btn-light" type="button">Curtir</button>
-                  <button class="btn btn-dark" type="button">Salvar</button>
-                </div>
-              </div> 
-            </div>                       
           </div>
-        {% endfor %}
-      </div>
+        {% endif %}      
+      {% endfor %}
+    </div>
+    
+    <!--Lista-filmes-Series-->
+    <div class="lista-filmes-series">
+      <h2>Nossas sugestões de hoje pra você</h2>
+      {% for cont in conteudo %}
+        <div class="flex-container">
+          <div class="filmes">
+            <div class="cimaCard">
+              <p class="titulo">{{cont.titulo}}</p>
+            </div>
+            <div class="midiaCard">
+              <img src="{{cont.imagem}}" alt="Imagem {{cont.titulo}}">
+              
+            </div>
+            <div class="baixoCard">
+              <div class="bnt-lista-filme">
+                <a href="{% url 'darlike' cont.id %}"><button class="btn btn-light" type="button">Curtir</button></a>
+                <button class="btn btn-dark" type="button">Salvar</button>
+                <button class="btn btn-success" type="button">curtidas: {{cont.total_likes}}</button>
+              </div>
+            </div> 
+          </div> 
+        </div>
+      {% endfor %}                      
+    </div>
+  </div>
     
 
 </body>

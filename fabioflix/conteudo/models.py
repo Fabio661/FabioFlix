@@ -1,3 +1,5 @@
+import numpy as np
+
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator
@@ -36,6 +38,11 @@ class Conteudo(models.Model):
     
     class Meta:
         ordering = ['-criado_em']
-        
+    
+    def total_likes(self):
+        return self.likes.count()
+    
     def __str__(self):
         return self.titulo
+    
+    
