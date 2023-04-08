@@ -12,73 +12,93 @@
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
 </head>
 <body>
-    <!--Barra de Navegação-->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="{% url 'home' %}">FKFLIX</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'home' %}">Inicio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Filmes</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Series</a>
-              </li>
-            </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </div>
-        </div>
-    </nav>
+  <!--Barra de Navegação-->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'home' %}">FKFLIX</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Filmes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Series</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
 
-    <!--Destaques-->
-    <div class="destaques">
-      {% for cont in conteudo %}
-        {% if cont.id == 1 or cont.id == 2 %}
-          <div class="container">
-            <h2>FKFLIX</h2><h1>{{cont.titulo}}</h1>
-            <img src="{{cont.imagem}}" alt="Imagem {{cont.titulo}}">
-            <div class="botao-destaque">
-              <button class="btn btn-light" type="button">Assistir</button>
-              <button class="btn btn-dark" type="button">Mais Informações</button>
-            </div>
+  <!--Destaques-->
+  <div class="destaques">
+    {% for cont in conteudo %}
+      {% if cont.id == 1 or cont.id == 2 %}
+        <div class="container">
+          <h2>FKFLIX</h2><h1>{{cont.titulo}}</h1>
+          <img src="{{cont.imagem}}" alt="Imagem {{cont.titulo}}">
+          <div class="botao-destaque">
+            <button class="btn btn-light" type="button">Assistir</button>
+            <button class="btn btn-dark" type="button">Mais Informações</button>
           </div>
-        {% endif %}      
-      {% endfor %}
-    </div>
-    
-    <!--Lista-filmes-Series-->
-    <div class="lista-filmes-series">
-      <h2>Nossas sugestões de hoje pra você</h2>
-      {% for cont in conteudo %}
-        <div class="flex-container">
-          <div class="filmes">
-            <div class="cimaCard">
-              <p class="titulo">{{cont.titulo}}</p>
-            </div>
-            <div class="midiaCard">
-              <img src="{{cont.imagem}}" alt="Imagem {{cont.titulo}}">
-              
-            </div>
-            <div class="baixoCard">
-              <div class="bnt-lista-filme">
-                <a href="{% url 'darlike' cont.id %}"><button class="btn btn-light" type="button">Curtir</button></a>
-                <button class="btn btn-dark" type="button">Salvar</button>
-                <button class="btn btn-success" type="button">curtidas: {{cont.total_likes}}</button>
-              </div>
-            </div> 
-          </div> 
         </div>
-      {% endfor %}                      
-    </div>
+      {% endif %}      
+    {% endfor %}
+  </div>
+    
+  <!--Lista-filmes-Series-->
+  <div class="lista-filmes-series">
+    <h2>Nossas sugestões de hoje pra você</h2>
+    {% for cont in conteudo %}
+      <div class="flex-container">
+        <div class="cards">
+          <div class="cimaCard">
+            <p class="titulo">{{cont.titulo}}</p>
+          </div>
+          <div class="midiaCard">
+            <img src="{{cont.imagem}}" alt="Imagem {{cont.titulo}}"> 
+          </div>
+          <div class="baixoCard">
+            <div class="bnt-lista-filme">
+              <a href="{% url 'darlike' cont.id %}"><button class="btn btn-light" type="button">Curtir</button></a>
+              <button class="btn btn-dark" type="button">Salvar</button>
+              <button class="btn btn-success" type="button">curtidas: {{cont.total_likes}}</button>
+            </div>
+          </div> 
+        </div> 
+      </div>
+    {% endfor %}                      
+  </div>
+  <!--Filmes Sugeridos-->
+  <div class="filmes">
+    <h2>Filmes Sugeridos</h2>
+    {% for cont in conteudo %}
+      {% if cont.genero == 'Filme' %}
+      <div class="container_2">
+        <img src="{{cont.imagem}}" alt="capa do {{cont.titulo}}">
+      </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <!--Series Sugeridas-->
+  <div class="series">
+    <h2>Series Sugeridas</h2>
+    {% for cont in conteudo %}
+      {% if cont.genero == 'Serie' %}
+      <div class="container_3">
+        <img src="{{cont.imagem}}" alt="capa do {{cont.titulo}}">
+      </div>
+      {% endif %}
+    {% endfor %}
   </div>
     
 
