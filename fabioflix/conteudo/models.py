@@ -1,5 +1,6 @@
 import numpy as np
 
+from embed_video.fields import EmbedVideoField
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator
@@ -27,6 +28,7 @@ class Conteudo(models.Model):
     slug = models.SlugField(max_length=100, unique=True)
     imagem = models.ImageField(upload_to='imagems/')
     sinopse = models.TextField()
+    url = EmbedVideoField(blank=True)
     elenco = models.CharField(max_length=100)
     criado_em = models.DateTimeField(auto_now_add=True)
     idade_recomendada = models.IntegerField(validators=[MinValueValidator(10),
