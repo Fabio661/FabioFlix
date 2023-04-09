@@ -1,0 +1,39 @@
+body {
+    background-image: linear-gradient( to right, rgb(0, 0, 0), rgb(22, 22, 22), rgb(20, 20, 20), rgb(37, 37, 37));
+}
+
+nav {
+    background-image: linear-gradient( to right, rgb(255, 255, 255), rgb(209, 209, 209), rgb(187, 187, 187), rgb(146, 146, 146) ); 
+}
+
+.video {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.sobre-video {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin-left: 10px;
+    color: rgb(219, 199, 199);
+    margin-top: 10px;
+    float: left;
+}
+
+.imagem-do-conteudo img {
+    height: 150px;
+    width: 250px;
+    margin-left: 291px;
+    margin-top: 10px;
+    border-radius: 10px;
+    float: left;
+}
+
+.btn {
+    justify-content: center;
+    margin-left: 10px;
+}
