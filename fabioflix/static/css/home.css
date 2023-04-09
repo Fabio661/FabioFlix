@@ -1,8 +1,11 @@
 body {
-    background-color: #141414;
+    background-image: linear-gradient( to right, rgb(0, 0, 0), rgb(19, 19, 19), rgb(22, 22, 22), rgb(41, 41, 41) );
     color: white;
 }
 
+.navbar {
+    background-image: linear-gradient( to right, rgb(255, 255, 255), rgb(209, 209, 209), rgb(187, 187, 187), rgb(146, 146, 146) ); 
+}
 
 /* destaques*/
 .container {
@@ -18,7 +21,7 @@ body {
     height: 450px;
     width: 750px;
     border-radius: 10px; 
-    box-shadow: -5px 5px 5px #ffffff11;
+    box-shadow: -5px 5px 10px #ffffff11;
     transition: 0.2s, 0.2s;
 }
 

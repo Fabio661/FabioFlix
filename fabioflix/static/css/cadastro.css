@@ -1,0 +1,42 @@
+body {
+    background-image: linear-gradient( to right, rgb(0, 0, 0), rgb(22, 22, 22), rgb(20, 20, 20), rgb(37, 37, 37));
+}
+
+nav {
+    background-image: linear-gradient( to right, rgb(255, 255, 255), rgb(209, 209, 209), rgb(187, 187, 187), rgb(146, 146, 146) ); 
+}
+
+.logo {
+    text-align: center;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+}
+
+.container {
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.cadastro form {
+    display: flex;
+    flex-direction: column;
+    width: 1300px;
+    padding: 40px;
+    color: white;
+    background-color: rgba(41, 37, 37, 0.26);
+    border-radius: 10px;
+}
+
+
+.cadastro form h1 {
+    text-align: center;
+}
+
+.cadastro form h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
