@@ -54,7 +54,7 @@
         <h4>Curtidas: {{conteudo.total_likes}}</h4>       
     </div>
     <div class="btn video">
-        <button class="btn btn-success">Curtir</button>
+        <a href="{% url 'darlike' conteudo.id %}"><button class="btn btn-success">Curtir</button></a>
         <button class="btn btn-primary">Salvar</button>
     </div>
 

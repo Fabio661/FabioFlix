@@ -2,6 +2,7 @@ body {
     background-image: linear-gradient( to right, rgb(0, 0, 0), rgb(22, 22, 22), rgb(20, 20, 20), rgb(37, 37, 37));
 }
 
+/* Barra de Navegação */
 nav {
     background-image: linear-gradient( to right, rgb(255, 255, 255), rgb(209, 209, 209), rgb(187, 187, 187), rgb(146, 146, 146) ); 
 }
@@ -12,6 +13,7 @@ nav {
     background-color: rgb(255, 255, 255);
 }
 
+/* Cadastro */
 .container {
     width: 100vw;
     height: 90vh;

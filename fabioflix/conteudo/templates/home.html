@@ -45,11 +45,7 @@
       {% if cont.id == 1 or cont.id == 2 %}
         <div class="container">
           <h2>FKFLIX</h2><h1>{{cont.titulo}}</h1>
-          <img src="{{cont.imagem}}" alt="Imagem {{cont.titulo}}">
-          <div class="botao-destaque">
-            <button class="btn btn-light" type="button">Assistir</button>
-            <button class="btn btn-dark" type="button">Mais Informações</button>
-          </div>
+          <a href="{% url 'assistir' cont.id %}"><img src="{{cont.imagem}}" alt="Imagem {{cont.titulo}}"></a>
         </div>
       {% endif %}      
     {% endfor %}
@@ -65,7 +61,7 @@
             <p class="titulo">{{cont.titulo}}</p>
           </div>
           <div class="midiaCard">
-            <img src="{{cont.imagem}}" alt="Imagem {{cont.titulo}}"> 
+            <a href="{% url 'assistir' cont.id %}"><img src="{{cont.imagem}}" alt="Imagem {{cont.titulo}}"></a>
           </div>
           <div class="baixoCard">
             <div class="bnt-lista-filme">
@@ -84,7 +80,7 @@
     {% for cont in conteudo %}
       {% if cont.genero == 'Filme' %}
       <div class="container_2">
-        <img src="{{cont.imagem}}" alt="capa do {{cont.titulo}}">
+        <a href="{% url 'assistir' cont.id %}"><img src="{{cont.imagem}}" alt="capa do {{cont.titulo}}"></a>
       </div>
       {% endif %}
     {% endfor %}
@@ -95,7 +91,7 @@
     {% for cont in conteudo %}
       {% if cont.genero == 'Serie' %}
       <div class="container_3">
-        <img src="{{cont.imagem}}" alt="capa do {{cont.titulo}}">
+        <a href="{% url 'assistir' cont.id %}"><img src="{{cont.imagem}}" alt="capa do {{cont.titulo}}"></a>
       </div>
       {% endif %}
     {% endfor %}
