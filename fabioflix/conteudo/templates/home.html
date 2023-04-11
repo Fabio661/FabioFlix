@@ -66,7 +66,10 @@
           <div class="baixoCard">
             <div class="bnt-lista-filme">
               <a href="{% url 'darlike' cont.id %}"><button class="btn btn-light" type="button">Curtir</button></a>
-              <button class="btn btn-dark" type="button">Salvar</button>
+              <form action="add_cesta">
+                <input type="hidden" name="cont_id" value="{{cont.id}}">
+                <a href="{% url 'add_cesta' %}"><button class="btn btn-dark" type="button">Salvar</button></a>
+              </form>
               <button class="btn btn-success" type="button">curtidas: {{cont.total_likes}}</button>
             </div>
           </div> 

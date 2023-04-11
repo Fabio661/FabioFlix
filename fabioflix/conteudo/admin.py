@@ -1,6 +1,7 @@
 from django.contrib import admin
 from conteudo.models import Conteudo
 
+
 # Register your models here.
 
 class ConteudoAdmin(admin.ModelAdmin):
