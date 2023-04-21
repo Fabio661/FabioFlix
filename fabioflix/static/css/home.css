@@ -144,3 +144,31 @@ body {
     height: 165px;
     width: 265px;
 }
+
+/* Salvos */
+
+.salvos h2 {
+    margin-left: 75px;
+    margin-top: 10px;
+}
+
+.salvos img {
+    height: 150px;
+    width: 250px;
+    margin-top: 10px;
+    border-radius: 10px;
+    transition: 0.2s, 0.2s;
+}
+
+.salvos img:hover {
+    height: 165px;
+    width: 265px;
+}
+
+.container_4 {
+    display: inline-flex;
+    margin-right: -55px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-left: 75px;
+}

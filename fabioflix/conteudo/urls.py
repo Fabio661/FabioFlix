@@ -4,6 +4,6 @@ from conteudo import views
 
 urlpatterns = [
     path('', views.pagina_inicial, name='home'),
-    path('like/<int:pk>', views.darlike, name='darlike'),
-    path('<int:id>', views.assistir, name='assistir')
+    path('like/<int:id>', views.darlike, name='darlike'),
+    path('<slug:slug>/', views.assistir, name='assistir')
 ]
