@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{% static 'css/conteudo.css' %}">
 </head>
 <body>
-    <!--Barra de Navegação-->
+  <!--Barra de Navegação-->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <a class="navbar-brand" href="{% url 'home' %}">FKFLIX</a>
@@ -41,19 +41,37 @@
     </div>
   </nav>
   <!--Video-->
-    <div class="video">
-        {% video conteudo.url '1280x720' %}
-    </div>
-    <div class="imagem-do-conteudo">
-        <img src="{{conteudo.imagem}}" alt="{{conteudo.titulo}}">
-    </div>
-    <div class="sobre-video">
-        <h4>{{conteudo.titulo}} - {{conteudo.genero}}</h4>
-        <h4>Genero: {{conteudo.genero_cinematografico}}</h4>
-        <h4>Idade Recomendada: {{conteudo.idade_recomendada}} anos</h4>
-        <h4>Curtidas: {{conteudo.total_likes}}</h4>       
-    </div>
-    
-
+  <div class="video">
+    {% video conteudo.url '1280x720' %}
+  </div>
+  <div class="imagem-do-conteudo">
+    <img src="{{conteudo.imagem.url}}" alt="{{conteudo.titulo}}">
+  </div>
+  <div class="sobre-video">
+    <h4>{{conteudo.titulo}} - {{conteudo.genero}}</h4>
+    <h4>Genero: {{conteudo.genero_cinematografico}}</h4>
+    <h4>Idade Recomendada: {{conteudo.idade_recomendada}} anos</h4>
+    <h4>Curtidas: {{conteudo.total_likes}}</h4>      
+  </div>
+  <div class="container">
+    <a href="{% url 'darlike' conteudo.id %}"><button class="btn btn-light" type="button">
+      {% if tem_like %}
+        Retirar Curtida
+      {% else %}
+        Curtir
+      {% endif %}
+    </button></a>
+    <form action="add_cesta">
+      <input type="hidden" name="cont_id" value="{{cont.id}}">
+      <a href="{% url 'salvar' conteudo.id %}"><button class="btn btn-dark" type="button">
+        {% if esta_salvo %}
+          Salvo
+        {% else %}
+          Salvar
+        {% endif %}
+      </button></a>
+    </form>
+    <button class="btn btn-success" type="button">Curtidas: {{conteudo.total_likes}}</button>
+  </div>
 </body>
 </html>

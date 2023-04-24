@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     'conteudo',
     'usuario',
-    'cesta',
+    'lista',
     'embed_video',
 ]
 

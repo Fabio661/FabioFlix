@@ -2,7 +2,6 @@ from embed_video.fields import EmbedVideoField
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator
-from django.urls import reverse
 
 # Create your models here.
 
@@ -31,7 +30,8 @@ class Conteudo(models.Model):
     criado_em = models.DateTimeField(auto_now_add=True)
     idade_recomendada = models.IntegerField(validators=[MinValueValidator(10),
                                                         MaxValueValidator(18)])
-    likes = models.ManyToManyField(User, blank=True, related_name="like_post")
+    likes = models.ManyToManyField(User, blank=True, related_name='like_post')
+    salvo = models.ManyToManyField(User, blank=True, related_name='salvar_post')
     status = models.CharField(max_length=12, choices=STATUS, default='Normal')
     genero = models.CharField(max_length=5, choices=GENERO)
     genero_cinematografico = models.CharField(max_length=12, choices=GENERO_CINEMATOGRAFICO)
@@ -44,6 +44,3 @@ class Conteudo(models.Model):
     
     def __str__(self):
         return self.titulo
-    
-    def get_absolute_url(self):
-        return reverse("article_detail", kwargs={"slug": self.slug})
