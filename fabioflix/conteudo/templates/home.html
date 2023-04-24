@@ -45,7 +45,7 @@
       {% if cont.id == 1 or cont.id == 2 %}
         <div class="container">
           <h2>FKFLIX</h2><h1>{{cont.titulo}}</h1>
-          <a href="{% url 'assistir' cont.id %}"><img src="{{cont.imagem}}" alt="Imagem {{cont.titulo}}"></a>
+          <a href="{% url 'assistir' cont.slug %}"><img src="{{cont.imagem}}" alt="Imagem {{cont.titulo}}"></a>
         </div>
       {% endif %}      
     {% endfor %}
@@ -68,7 +68,7 @@
               <a href="{% url 'darlike' cont.id %}"><button class="btn btn-light" type="button">Curtir</button></a>
               <form action="add_cesta">
                 <input type="hidden" name="cont_id" value="{{cont.id}}">
-                <a href="{% url 'add_cesta' cont.id %}"><button class="btn btn-dark" type="button">Salvar</button></a>
+                <a href="{% url 'salvar' cont.id %}"><button class="btn btn-dark" type="button">Salvar</button></a>
               </form>
               <button class="btn btn-success" type="button">curtidas: {{cont.total_likes}}</button>
             </div>
@@ -102,13 +102,12 @@
   <!--Salvos-->
   <div class="salvos">
     <h2>Salvos</h2>
-    {% for x in salvos %}
+    {% for x in conteudo_salvo %}
     <div class="container_4">
       <a href="{% url 'assistir_salvo' x.conteudo.slug %}"><img src="{{ x.conteudo.imagem.url }}" alt="imagem do {{x.conteudo.titulo}}"></a>
     </div>
     {% endfor %}
   </div>
-    
 
 </body>
 </html>

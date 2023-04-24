@@ -36,7 +36,11 @@ nav {
     float: left;
 }
 
-.btn {
-    justify-content: center;
-    margin-left: 10px;
+/* botões */
+.container {
+    display: flex;
+    margin-top: 10px;
+    margin-right: 248px;
+    justify-content: space-around;
+    width: 500px;
 }
