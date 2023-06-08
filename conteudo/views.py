@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect, HttpResponseRedirect
+from django.views.generic import ListView
 from .models.conteudo import Conteudo
 from lista.models import Lista
 from .forms import LikeForm
@@ -45,3 +46,17 @@ def assistir(request, id):
     else:       
         return redirect('cadastro')
 
+class ConteudoEncontrar(ListView):
+    model = Conteudo
+    conteudos = Conteudo.objects.all()
+    template_name = 'procurar.html'
+    
+    def get_queryset(self):
+        txt_titulo = self.request.GET.get('titulo')
+           
+        if txt_titulo:    
+            conteudos = Conteudo.objects.filter(titulo__icontains=txt_titulo)
+        else:
+            conteudos = Conteudo.objects.all()
+            
+        return conteudos
