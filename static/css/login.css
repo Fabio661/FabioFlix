@@ -7,6 +7,22 @@ nav {
     background-image: linear-gradient( to right, rgb(255, 255, 255), rgb(209, 209, 209), rgb(187, 187, 187), rgb(146, 146, 146) ); 
 }
 
+.login-cadastro {
+    justify-content: space-between;
+}
+
+.login-cadastro a {
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    transition: 0.7s, 0.7s;
+    margin-left: 10px;
+}
+
+.login-cadastro a:hover {
+    color: black;
+}
+
 /* Login */
 .container {
     width: 100vw;

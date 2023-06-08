@@ -1,5 +1,70 @@
-img {
-    display: inline-flex;
-    height: 300px;
-    width: 300px;
+body {
+    background-image: linear-gradient( to right, rgb(0, 0, 0), rgb(19, 19, 19), rgb(22, 22, 22), rgb(41, 41, 41) );
+    color: white;
+}
+
+.navbar {
+    position: fixed;
+    top: 0%;
+    width: 100%;
+    background-image: linear-gradient( to right, rgb(255, 255, 255), rgb(209, 209, 209), rgb(187, 187, 187), rgb(146, 146, 146) ); 
+}
+
+.login-cadastro {
+    justify-content: space-between;
+}
+
+.login-cadastro a {
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    transition: 0.7s, 0.7s;
+    margin-left: 10px;
+}
+
+.login-cadastro a:hover {
+    color: black;
+}
+
+/* barra de pesquisa */
+.barra {
+    display: flex;
+    justify-content: center;
+    margin-top: 55px;
+    padding: 10px;
+}
+
+.barra input {
+    height: 70px;
+    width: 1300px;
+    background-image: linear-gradient( to right, rgb(139, 124, 124), rgb(90, 71, 71) );
+}
+
+::-webkit-input-placeholder {
+    color: black;
+    font-size: x-large;
+}
+
+input[type=text] {
+    font-size: x-large;
+}
+
+/* conteudos */
+.conteudos {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.conteudos img {
+    height: 150px;
+    width: 250px;
+    margin-top: 10px;
+    border-radius: 10px;
+    transition: 0.4s, 0.4s;
+}
+
+.conteudos img:hover {
+    height: 155px;
+    width: 255px;
 }

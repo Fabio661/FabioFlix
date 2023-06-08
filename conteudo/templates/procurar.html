@@ -24,20 +24,20 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="#destaques">Inicio</a>
+            <a class="nav-link" href="{% url 'home' %}">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#filmes">Filmes</a>
+            <a class="nav-link" href="{% url 'home' %}">Filmes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#series">Series</a>
+            <a class="nav-link" href="{% url 'home' %}">Series</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#salvos">Salvos</a>
+            <a class="nav-link" href="{% url 'home' %}">Salvos</a>
           </li>
         </ul>
         <div class="login-cadastro">
-          <a href="#">Procurar</a></button>
+          <a href="{% url 'encontrar_conteudo' %}">Procurar</a></button>
           <a href="{% url 'login' %}">Logar</a>
           <a href="{% url 'cadastro' %}">Cadastrar</a>
         </div>
@@ -45,16 +45,21 @@
     </div>
   </nav>
 
-  <form action="?" method="get">
-    <input type="text" name="titulo" id="" value="{{ request.get.titulo }}" class="p-1 border" autocomplete="off" placeholder="O que você esta procurando?">
-    <button type="submit" class="btn btn-success">Procurar</button>
-  </form>
+  <!--Barra de pesquisa-->
+  <div class="barra de pesquisa">
+    <form action="?" method="get">
+      <input type="text" name="titulo" id="" value="{{ request.get.titulo }}" class="p-1 border" autocomplete="off" placeholder="O que você esta procurando?">
+      <button type="submit" class="btn btn-success">Encontrar</button>
+    </form>
+  </div>
 
-  {% for cont in conteudos %}
-    <img src="{{cont.imagem.url}}">
-  {% endfor %}
-
-
-
+  <!-- Conteudos-->
+  <div class="conteudos">
+    {% for cont in object_list %}
+      <a href="{% url 'assistir' cont.id %}"><img src="{{cont.imagem.url}}" alt="capa do {{cont.titulo}}"></a>
+    {% empty %}
+      <h2>Nenhum filme ou serie encontrado</h2>
+    {% endfor %}
+  </div>
 
 </body>
