@@ -1,5 +1,5 @@
 from django.db import models
-from conteudo.models import Conteudo
+from conteudo.models.conteudo import Conteudo
 from django.contrib.auth.models import User
 
 # Create your models here.

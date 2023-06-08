@@ -1,0 +1,104 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt=br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmes-Series • FKFLIX</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+  <!--Barra de Navegação-->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'home' %}">FKFLIX</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#destaques">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#filmes">Filmes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#series">Series</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#salvos">Salvos</a>
+          </li>
+        </ul>
+        <div class="login-cadastro">
+          <a href="#">Procurar</a></button>
+          <a href="{% url 'login' %}">Logar</a>
+          <a href="{% url 'cadastro' %}">Cadastrar</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!--Destaques-->
+  <div id="destaques">
+    {% for cont in conteudo %}
+      {% if cont.id == 10 or cont.id == 15 %}
+        <div class="container">
+          <a href="{% url 'assistir' cont.id %}"><img src="{{cont.imagem}}" alt="Imagem {{cont.titulo}}"></a>
+        </div>
+      {% endif %}      
+    {% endfor %}
+  </div>
+    
+  <!--Lista-filmes-Series-->
+  <div class="lista-filmes-series">
+    <h2>Nossas sugestões para você</h2> 
+    <div class="scroll">
+      {% for cont in conteudo %}
+        <div class="cards">
+          <a href="{% url 'assistir' cont.id %}"><img src="{{cont.imagem}}" alt="Imagem {{cont.titulo}}"></a>
+        </div>
+      {% endfor %}
+    </div>                       
+  </div>
+
+  <!--Filmes Sugeridos-->
+  <div id="filmes">
+    <h2>Filmes</h2>
+    {% for cont in conteudo %}
+      {% if cont.genero == 'Filme' %}
+      <div class="container_2">
+        <a href="{% url 'assistir' cont.id %}"><img src="{{cont.imagem}}" alt="capa do {{cont.titulo}}"></a>
+      </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <!--Series Sugeridas-->
+  <div id="series">
+    <h2>Series</h2>
+    {% for cont in conteudo %}
+      {% if cont.genero == 'Serie' %}
+      <div class="container_3">
+        <a href="{% url 'assistir' cont.id %}"><img src="{{cont.imagem}}" alt="capa do {{cont.titulo}}"></a>
+      </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <!--Salvos-->
+  <div id="salvos">
+    <h2>Salvos</h2>
+    {% for x in conteudo_salvo %}
+    <div class="container_4">
+      <a href="{% url 'assistir_salvo' x.conteudo.id %}"><img src="{{ x.conteudo.imagem.url }}" alt="imagem do {{x.conteudo.titulo}}"></a>
+    </div>
+    {% endfor %}
+  </div>
+
+</body>
+</html>
