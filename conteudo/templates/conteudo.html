@@ -53,16 +53,21 @@
     <h4>Idade Recomendada: {{conteudo.idade_recomendada}} anos</h4>
     <h4>Curtidas: {{conteudo.total_likes}}</h4>      
   </div>
+
   <div class="container">
-    <a href="{% url 'darlike' conteudo.id %}"><button class="btn btn-light" type="button">
+    <!--like-->
+    <form method="post" class="ui form">
+      {% csrf_token %}
+      {{like_form}}
       {% if tem_like %}
-        Retirar Curtida
+        <button type="submit" class="btn btn-danger">Deslike</button>
       {% else %}
-        Curtir
+        <button type="submit" class="btn btn-primary">Like</button>
       {% endif %}
-    </button></a>
+    </form>
+
     <form action="add_cesta">
-      <input type="hidden" name="cont_id" value="{{cont.id}}">
+      <input type="hidden" name="conteudo_id" value="{{conteudo.id}}">
       <a href="{% url 'salvar' conteudo.id %}"><button class="btn btn-dark" type="button">
         {% if esta_salvo %}
           Salvo
@@ -71,7 +76,10 @@
         {% endif %}
       </button></a>
     </form>
+
     <button class="btn btn-success" type="button">Curtidas: {{conteudo.total_likes}}</button>
+    
   </div>
+
 </body>
 </html>

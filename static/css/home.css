@@ -4,17 +4,35 @@ body {
 }
 
 .navbar {
+    position: fixed;
+    top: 0%;
+    width: 100%;
     background-image: linear-gradient( to right, rgb(255, 255, 255), rgb(209, 209, 209), rgb(187, 187, 187), rgb(146, 146, 146) ); 
+}
+
+.login-cadastro {
+    justify-content: space-between;
+}
+
+.login-cadastro a {
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    transition: 0.7s, 0.7s;
+    margin-left: 10px;
+}
+
+.login-cadastro a:hover {
+    color: black;
 }
 
 /* destaques*/
 .container {
-    padding: 15px;
+    padding-top: 90px;
+    padding-bottom: 20px;
     display: inline-flex;
     justify-content: space-around;
-    width: 900px;
-    position: relative;
-    
+    width: 900px;   
 }
 
 .container img {   
@@ -30,68 +48,50 @@ body {
     width: 770px;
 }
 
-.container h2 {
-    padding: 10px;
-    font-size:medium;
-    background-color: rgba(255, 255, 255, 0);
-    border-radius: 10px;
-    position: absolute;
-    top: 20px;
-    left: 80px;
-}
-
-.container h1 {
-    position: absolute;
-    bottom: 20px;
-    left: 80px;
-}
-
 /* lista filmes/series */
 .lista-filmes-series h2 {
-    margin-left: 75px;
+    margin-left: 85px;
 }
 
-.flex-container {
-    display: inline-flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: flex-start;
-    margin-left: 75px;
-    margin-right: -55px;
-}
-
-.flex-container .cards {
-    margin-top: 10px;
-    background-color: rgb(0, 0, 0);
+.scroll::-webkit-scrollbar {
     border-radius: 10px;
 }
 
-.flex-container .cimaCard {
-    text-align: center;
-    margin-bottom: -17px;
-    
+.scroll::-webkit-scrollbar-thumb{
+    background-image: linear-gradient( to right, rgb(255, 255, 255), rgb(209, 209, 209), rgb(187, 187, 187), rgb(146, 146, 146) ); 
+    padding: 10px;
+    border-radius: 10px;
 }
 
-.flex-container img {
-    height: 150px;
-    width: 250px; 
-    transition: 0.2s, 0.2s; 
+.scroll {
+    width: 1750px;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-left: 75px;
 }
 
-.flex-container img:hover {
-    height: 165px;
-    width: 265px;
+.cards {
+    display: inline-block;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 10px;
 }
 
-.flex-container .bnt-lista-filme {
-   display: flex;
-   align-items: center;
-   text-align: center;
-   justify-content: space-around;
+.cards img {
+    height: 250.25px;
+    width: 320.5px;
+    transition: 0.2s, 0.2s;
+    border-radius: 10px;
 }
+
+.cards img:hover {
+    height: 260.25px;
+    width: 330.5px;
+}
+
 
 /* Filmes */
-.filmes h2 {
+#filmes h2 {
     margin-left: 75px;
     margin-top: 10px;
 }
@@ -110,16 +110,16 @@ body {
     width: 250px;
     margin-top: 10px;
     border-radius: 10px;
-    transition: 0.2s, 0.2s;
+    transition: 0.4s, 0.4s;
 }
 
 .container_2 img:hover {
-    height: 165px;
-    width: 265px;
+    height: 155px;
+    width: 255px;
 }
 
 /* Serie */
-.series h2 {
+#series h2 {
     margin-left: 75px;
     margin-top: 10px;
 }
@@ -137,32 +137,32 @@ body {
     width: 250px;
     margin-top: 10px;
     border-radius: 10px;
-    transition: 0.2s, 0.2s;
+    transition: 0.4s, 0.4s;
 }
 
 .container_3 img:hover {
-    height: 165px;
-    width: 265px;
+    height: 155px;
+    width: 255px;
 }
 
 /* Salvos */
 
-.salvos h2 {
+#salvos h2 {
     margin-left: 75px;
     margin-top: 10px;
 }
 
-.salvos img {
+#salvos img {
     height: 150px;
     width: 250px;
     margin-top: 10px;
     border-radius: 10px;
-    transition: 0.2s, 0.2s;
+    transition: 0.4s, 0.4s;
 }
 
-.salvos img:hover {
-    height: 165px;
-    width: 265px;
+#salvos img:hover {
+    height: 155px;
+    width: 255px;
 }
 
 .container_4 {
