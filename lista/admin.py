@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Lista
+from lista.models.lista import Lista
 
 # Register your models here.
 

@@ -26,7 +26,7 @@ class Conteudo(models.Model):
     imagem = models.ImageField(upload_to='imagems/')
     sinopse = models.TextField()
     url = EmbedVideoField(blank=True)
-    elenco = models.CharField(max_length=100)
+    elenco = models.CharField(max_length=100, blank=True)
     criado_em = models.DateTimeField(auto_now_add=True)
     idade_recomendada = models.IntegerField(validators=[MinValueValidator(10),
                                                         MaxValueValidator(18)])
