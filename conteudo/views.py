@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect, HttpResponseRedirect
 from django.views.generic import ListView
 from .models.conteudo import Conteudo
-from lista.models import Lista
+from lista.models.lista import Lista
 from .forms import LikeForm
 
 # Create your views here.
@@ -23,6 +23,7 @@ def assistir(request, id):
         tem_like = request.user in conteudo.likes.all()
         esta_salvo = request.user in conteudo.salvo.all()
         
+        #Like
         if request.method == 'POST':
             like_form = LikeForm(data=request.POST)
             if like_form.is_valid() and tem_like:
@@ -46,7 +47,7 @@ def assistir(request, id):
     else:       
         return redirect('cadastro')
 
-class ConteudoEncontrar(ListView):
+class EncontrarConteudo(ListView):
     model = Conteudo
     conteudos = Conteudo.objects.all()
     template_name = 'procurar.html'
