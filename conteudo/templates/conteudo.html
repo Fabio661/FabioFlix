@@ -62,7 +62,7 @@
 
   <!--like-->
   <div class="container">
-    <form method="post" class="ui form">
+    <form id="form1" method="post" class="ui form">
       {% csrf_token %}
       {{like_form}}
       {% if tem_like %}
@@ -72,7 +72,7 @@
       {% endif %}
     </form>
 
-    <form action="add_cesta">
+    <form action="salvar">
       <input type="hidden" name="conteudo_id" value="{{conteudo.id}}">
       <a href="{% url 'salvar' conteudo.id %}"><button class="btn btn-dark" type="button">
         {% if esta_salvo %}
@@ -83,7 +83,31 @@
       </button></a>
     </form> 
     <button class="btn btn-success" type="button">Curtidas: {{conteudo.total_likes}}</button>
-
   </div>
+
+  <!--Comentarios-->
+  <div class="container_2">
+    {% if comentarios.count %}
+      <h1>{{comentarios.count}} comentarios</h1>
+    {% else %}
+      <strong><h3>Sem comentarios</h3></strong>
+    {% endif %} 
+    {% for comentario in comentarios %}
+      <strong><p>{{comentario.usuario.username}}</strong> - {{comentario.criado_em}}</p>
+      <p>{{comentario.comentario}}</p>
+    {% endfor %}
+  </div>
+
+  <!--Comentar-->
+  <div class="container_3">
+    <form id="form2" method="post" action="comentar">
+      <input type="hidden" name="conteudo_id" value="{{conteudo.id}}">
+      {% csrf_token %}
+      <hr>
+      {{comentario_form.as_p}}
+      <button type="submit" class="btn btn-primary  btn-lg">comentar</button>
+    </form>
+  </div>
+
 </body>
 </html>

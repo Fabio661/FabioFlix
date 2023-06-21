@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models.conteudo import Conteudo
-
+from .models.comentario import Comentario
 
 # Register your models here.
 
@@ -12,3 +12,4 @@ class ConteudoAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug' : ('titulo',)}
 
 admin.site.register(Conteudo, ConteudoAdmin)
+admin.site.register(Comentario)

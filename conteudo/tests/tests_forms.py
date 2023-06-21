@@ -1,8 +1,9 @@
 from django.test import TestCase
 from conteudo.factories import ConteudoFactory, UsuarioFactory
-from conteudo.forms import LikeForm
+from conteudo.forms import LikeForm, ComentarioForm
+from conteudo.models.comentario import Comentario
 
-class DarLikeTest(TestCase):
+class Like_ComentarioTeste(TestCase):
     
     def setUp(self):
         
@@ -37,4 +38,22 @@ class DarLikeTest(TestCase):
             
         self.assertTrue(form.is_valid())
         self.assertEqual(data['likes'], 1)
+
+    def test_comentar(self):
+        
+        data = {
+            'usuario': self.usuario,
+            'conteudo': self.conteudo,
+            'comentario': 'muito bom',
+        }
+        
+        form = ComentarioForm(data=data)
+        
+        if form.is_valid():
+           comentario = Comentario.objects.create(usuario=self.usuario, conteudo=self.conteudo)
+        
+        comentario_criado = Comentario.objects.get(conteudo=self.conteudo)
+        
+        self.assertTrue(form.is_valid())
+        self.assertEqual(comentario, comentario_criado)
         
