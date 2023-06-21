@@ -1,6 +1,6 @@
 from django.test import TestCase
 from conteudo.factories import ConteudoFactory, UsuarioFactory
-from lista.models.lista import Lista
+from salvos.models.salvos import Salvos
 
 class SalvarTest(TestCase):
     
@@ -26,12 +26,12 @@ class SalvarTest(TestCase):
         
     def test_salvar_conteudo(self):
         
-        if self.conteudo.id not in Lista.objects.all():
-            Lista.objects.create(usuario=self.usuario, conteudo=self.conteudo)
+        if self.conteudo.id not in Salvos.objects.all():
+            Salvos.objects.create(usuario=self.usuario, conteudo=self.conteudo)
         else:
-            pass
+            raise Exception('Conteudo ja está salvo')
               
-        conteudo_salvo = Lista.objects.get(conteudo_id=1).conteudo_id
+        conteudo_salvo = Salvos.objects.get(conteudo_id=1).conteudo_id
         self.assertEqual(conteudo_salvo, self.conteudo.id)
         
    

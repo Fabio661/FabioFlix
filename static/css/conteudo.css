@@ -52,11 +52,31 @@ nav {
     float: left;
 }
 
-/* botões */
+/* botões like-salvar-curtidas */
 .container {
     display: flex;
     margin-top: 10px;
     margin-right: 248px;
     justify-content: space-around;
     width: 500px;
+}
+
+/* comentarios */
+
+.container_2 {
+    display: flex;
+    padding: 10px;
+    width: 1280px;
+    margin-top: 120px;
+    margin-left: 291px;
+    flex-direction: column;
+    background-color: darkcyan;
+    border-radius: 10px;
+    color: white;
+}
+
+.container_3 form {  
+    margin-top: 10px;
+    margin-left: 291px;
+    color: white;
 }
