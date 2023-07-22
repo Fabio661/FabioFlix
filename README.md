@@ -1,4 +1,4 @@
-# Site de Streaming ( em construção )
+# Site de Streaming
 
 ## Sobre
 ```
